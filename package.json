@@ -1,0 +1,20 @@
+{
+  "name": "trafikverket-fetcher",
+  "version": "1.0.0",
+  "description": "Test Trafikverket",
+  "main": "./index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Erik Cedheim",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "eventsource": "^1.0.7",
+    "nats": "^1.4.0"
+  },
+  "bin": {
+    "trafikverket": "./index.js"
+  }
+}
