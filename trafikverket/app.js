@@ -66,9 +66,17 @@ function sendToNATS(tvBody){
             var deviations = situation.Deviation;
             for(var k in deviations){
                 var deviation = deviations[k];
-                var message = JSON.stringify(deviation);
+
+                
+                var wrapper = {
+                    messageType: 'traffic',
+                    payload: deviation
+                };
+
+                var message = JSON.stringify(wrapper);
 
                 console.log(message);
+
 
                 nc.publish(message);                
             }
