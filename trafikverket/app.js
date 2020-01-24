@@ -55,16 +55,42 @@ var config = {
     headers: { 'Content-Type': 'text/xml' }
 };
 
+function sendToNATS(tvBody){
+    var results = tvBody.RESPONSE.RESULT;
+
+    for(var i in results){
+        var result = results[i];
+        var situations = result.Situation;
+        for(var j in situations){
+            var situation = situations[j];
+            var deviations = situation.Deviation;
+            for(var k in deviations){
+                var deviation = deviations[k];
+                var message = JSON.stringify(deviation);
+
+                console.log(message);
+
+                nc.publish(message);                
+            }
+
+        }
+    }
+}
 
 axios.post("https://api.trafikinfo.trafikverket.se/v2/data.json", xmlRequest, config).then(response => {
     var resultFromTV = response.data.RESPONSE.RESULT[0];
     var url = resultFromTV.INFO.SSEURL;
-    console.log(JSON.stringify(response.data));
+
+    sendToNATS(response.data);
 
     var eventSource = new EventSource(url);
     eventSource.onmessage = (event) => {
-        var json = JSON.stringify(event);
-        console.log(json);
+        var json = event.data;
+        var parsed = JSON.parse(json);
+
+        sendToNATS(parsed);
     };
 
 });
+
+
