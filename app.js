@@ -59,7 +59,7 @@ var config = {
 axios.post("https://api.trafikinfo.trafikverket.se/v2/data.json", xmlRequest, config).then(response => {
     var resultFromTV = response.data.RESPONSE.RESULT[0];
     var url = resultFromTV.INFO.SSEURL;
-    console.log(url);
+    console.log(JSON.stringify(response.data));
 
     var eventSource = new EventSource(url);
     eventSource.onmessage = (event) => {
