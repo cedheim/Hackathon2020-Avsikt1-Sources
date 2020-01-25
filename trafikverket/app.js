@@ -88,7 +88,7 @@ axios.post("https://api.trafikinfo.trafikverket.se/v2/data.json", xmlRequest, co
     var resultFromTV = response.data.RESPONSE.RESULT[0];
     var url = resultFromTV.INFO.SSEURL;
 
-    sendToNATS(response.data);
+    //sendToNATS(response.data);
 
     var eventSource = new EventSource(url);
     eventSource.onmessage = (event) => {
