@@ -1,7 +1,7 @@
 {
-  "name": "trafikverket-fetcher",
+  "name": "luftdata-fetcher",
   "version": "1.0.0",
-  "description": "Test Trafikverket",
+  "description": "Test Luftdata",
   "main": "./app.js",
   "scripts": {
     "start": "node app.js",
@@ -11,7 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
-    "eventsource": "^1.0.7",
     "nats": "^1.4.0"
   },
   "bin": {

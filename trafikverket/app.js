@@ -2,7 +2,7 @@ const axios = require("axios");
 const NATS = require("nats");
 var EventSource = require('eventsource');
 
-var nc = NATS.connect('35.228.52.6:4222');
+var nc = NATS.connect('35.228.81.230:4222');
 
 // exports.fetch = async (req, res) => {
 //     var xmlRequest = `<REQUEST>
