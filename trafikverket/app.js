@@ -77,8 +77,7 @@ function sendToNATS(tvBody){
 
                 console.log(message);
 
-
-                nc.publish(message);                
+                nc.publish('traffic', message);                
             }
 
         }

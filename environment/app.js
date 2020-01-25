@@ -17,7 +17,7 @@ exports.fetch = (req, res) => {
             var message = JSON.stringify(wrapper);
             console.log(message);
 
-            nc.publish(message)
+            nc.publish('luftdata', message)
             ++count;
         }
 
